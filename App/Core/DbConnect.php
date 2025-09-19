@@ -10,10 +10,15 @@ class DbConnect
     protected $connection;
     protected $request;
 
+    const SERVER = 'sqlprive-pc2372-001.eu.clouddb.ovh.net:35167';
+    const BASE = 'cefiidev1464';
+    const USER = 'cefiidev1464';
+    const PASSWORD = '7Gps6S8Mh';
+    /*
     const SERVER = 'localhost';
     const USER = 'root';
     const PASSWORD = '';
-    const BASE = 'coursportfolio';
+    const BASE = 'coursportfolio';*/
 
     public function __construct()
     {
