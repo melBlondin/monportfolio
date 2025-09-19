@@ -21,21 +21,25 @@ class ContactController extends Controller
                 $contact= new Contact();
                     
                 //On hydrate
-                $contact->setNom(protected_values($_POST['nom'])); 
-                $contact->setPrenom(protected_values($_POST['prenom'])); 
-                $contact->setDate_naissance(protected_values($_POST['date_naissance'])); 
-                $contact->setAdresse(protected_values($_POST['adresse'])); 
-                $contact->setTelephone(protected_values($_POST['telephone'])); 
-                $contact->setMail(protected_values($_POST['mail'])); 
+                $contact->setNom($this->protected_values($_POST['nom'])); 
+                $contact->setPrenom($this->protected_values($_POST['prenom'])); 
+                $contact->setDate_naissance($this->protected_values($_POST['date_naissance'])); 
+                $contact->setAdresse($this->protected_values($_POST['adresse'])); 
+                $contact->setTelephone($this->protected_values($_POST['telephone'])); 
+                $contact->setMail($this->protected_values($_POST['mail'])); 
 
                 if(isset($_POST['nom']) && $_POST['nom']!=""){
                     $contact->setMessage(protected_values($_POST['message']));
                 }
 
-                $message="L'ajout du contact s'est correctement réalisé!";
+                $message="<div class='alert alert-success' role='alert'>L'ajout du contact s'est correctement réalisé!</div>";
                 $this->render('contact/index',['message'=>$message]);
                 var_dump($contact);
-            }
+            }else{
+                    $message="<div class='alert alert-warning' role='alert'>Le formulaire n'a pas éte correctement rempli</div>";
+                    $this->render('contact/index',['message'=>$message]);
+
+                }
         }else{
             $form = new Form();
 
@@ -58,7 +62,7 @@ class ContactController extends Controller
             $form->addInput("submit","add",["value"=>"Ajouter", "class"=>"mt-3 btn btn-primary"]);
             $form->endForm();
 
-             $this->render('inscription/index',["addForm"=> $form->getFormElements()]);
+             $this->render('contact/index',["addForm"=> $form->getFormElements()]);
 
     }    }
 }

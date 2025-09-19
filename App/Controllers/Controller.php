@@ -41,7 +41,7 @@ abstract class Controller
 
         die();
     }
-    private function protected_values($values)
+    public function protected_values($values)
     {
         $values = trim($values);
         $values = stripslashes($values);

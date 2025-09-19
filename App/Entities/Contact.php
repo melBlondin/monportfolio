@@ -114,12 +114,12 @@ class Contact
 
     public function getMessage()
     {
-        return $this->mail;
+        return $this->message;
     }
 
     public function setMessage($message)
     {
-    $this->mail = $mail;
+    $this->message = $message;
 
         return $this;
     }
